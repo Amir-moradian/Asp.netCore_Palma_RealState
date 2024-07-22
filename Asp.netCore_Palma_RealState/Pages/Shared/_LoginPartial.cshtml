@@ -1,6 +1,8 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+﻿@using Asp.netCore_Palma_RealState.Models
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject SignInManager<User_Model> SignInManager
+@inject UserManager<User_Model> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
