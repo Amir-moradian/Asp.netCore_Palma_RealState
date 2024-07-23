@@ -17,7 +17,8 @@ namespace Asp.netCore_Palma_RealState
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<User_Model>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
+            builder.Services.AddDefaultIdentity<User_Model>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddRazorPages();
 
