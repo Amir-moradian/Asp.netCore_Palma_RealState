@@ -13,6 +13,8 @@ namespace Asp.netCore_Palma_RealState.Data
             
         }
         public DbSet<User_Model> User_Model { get; set; }
+        public DbSet<T_estate> T_estate { get; set; }
+
 
     }
 }
