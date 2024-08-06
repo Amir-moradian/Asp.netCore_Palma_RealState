@@ -2,7 +2,7 @@
 
 namespace Asp.netCore_Palma_RealState.Models.ViewModel.EstateViewModel
 {
-    public class add_estate_VWM
+    public class estate_VWM
     {
         public T_estate? t_Estate { get; set; }
         public IFormFile? img_up { get; set; }

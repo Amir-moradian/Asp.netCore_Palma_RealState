@@ -1,0 +1,96 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.Admin.Estate.edit_estateModel
+@{
+}
+<div class="row mt-5">
+    <div class="col-lg-3 col-md-3 col-12">
+        <div class="text-right">
+            <div class="list-group p-0 mb-5">
+                <a href="#" class="active list-group-item list-group-item-action">
+                    ویرایش ملک
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center font-weight-bold m-auto"> مدیریت املاک </h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Estate_VWM.t_Estate.image" />
+                    <input type="hidden" asp-for="Estate_VWM.t_Estate.ID_estate" />
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label class="my-2 h6"> عنوان </label>
+                            <input asp-for="Estate_VWM.t_Estate.tittle" class="form-control">
+                            <span asp-validation-for="Estate_VWM.t_Estate.tittle"></span>
+
+                            <label class="my-2 h6"> متراژ </label>
+                            <input asp-for="Estate_VWM.t_Estate.metrage" class="form-control">
+                            <span asp-validation-for="Estate_VWM.t_Estate.metrage"></span>
+
+                            <label class="my-2 h6"> آدرس </label>
+                            <input asp-for="Estate_VWM.t_Estate.address" class="form-control">
+                            <span asp-validation-for="Estate_VWM.t_Estate.address"></span>
+
+                            <label class="my-2 h6"> توضیحات </label>
+                            <textarea asp-for="Estate_VWM.t_Estate.description" class="form-control"></textarea>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label class="my-2 h6"> نوع </label>
+                            <select asp-for="Estate_VWM.select_category" asp-items="Model.Estate_VWM.category_option" class="form-control"></select>
+                            <span asp-validation-for="Estate_VWM.select_category"></span>
+
+                            <label class="my-2 h6"> مبلغ </label>
+                            <input asp-for="Estate_VWM.t_Estate.price" class="form-control">
+                            <span asp-validation-for="Estate_VWM.t_Estate.price"></span>
+
+                            <label class="my-2 h6"> عکس </label>
+                            <div class="custom-file my-1">
+                                <h6 class="custom-file-label text-center"> عکس محصول </h6>
+                                <input asp-for="Estate_VWM.img_up" id="ImgUp" class="custom-file-input" type="file">
+                            </div>
+                            <img src="~/image/Estates/@Model.Estate_VWM.t_Estate.image" id="imgPreview" class="border my-1 mx-auto d-block" width="120px" height="120px">
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <button type="submit" class="btn btn-success btn-block"> تایید </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <a asp-page="admin" class="btn btn-secondary btn-block"> بازگشت </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgPreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+        $("#ImgUp").change(function () {
+            readURL(this);
+        });
+    </script>
+}
