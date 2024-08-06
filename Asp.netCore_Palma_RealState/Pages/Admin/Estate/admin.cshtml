@@ -15,7 +15,7 @@
     <div class="col-lg-9 col-md-9 col-12">
         <div class="card">
             <div class="card-header d-flex flex-wrap">
-                <a href="create.html" class="btn btn-primary text-white mr-0">
+                <a asp-page="admin" class="btn btn-primary text-white mr-0">
                     <i class="fas fa-plus"></i>
                     ایجاد ملک جدید
                 </a>
@@ -38,7 +38,7 @@
                             @foreach (var item in Model.show_all_estate)
                             {
                                 <tr>
-                                    <td class="text-center align-middle"><img src="~/image/img_estate/@item.image" class="img-fluid" width="60" height="60" alt=""></td>
+                                    <td class="text-center align-middle"><img src="~/image/Estates/@item.image" class="img-fluid" width="60" height="60" alt=""></td>
                                     <td class="text-center align-middle">@item.tittle</td>
                                     <td class="text-center align-middle">@item.metrage</td>
                                     @*  <td class="text-center align-middle">آپارتمان</td> *@
