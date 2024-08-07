@@ -44,9 +44,9 @@
                                     @*  <td class="text-center align-middle">آپارتمان</td> *@
                                     <td class="text-center">
                                         <div class="btn-group" dir="ltr" role="group" aria-label="Basic example">
-                                            <a asp-page="" asp-route-id="@item.ID_estate" class="btn btn-sm btn-info"><i class="fas fa-list"></i></a>
+                                            <a asp-page="detail_estate" asp-route-id="@item.ID_estate" class="btn btn-sm btn-info"><i class="fas fa-list"></i></a>
                                             <a asp-page="edit_estate" asp-route-id="@item.ID_estate" class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i> </a>
-                                            <a asp-page="delete" asp-route-id="@item.ID_estate" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a asp-page="delete_estate" asp-route-id="@item.ID_estate" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
