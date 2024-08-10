@@ -19,16 +19,16 @@
             </div>
             <div class="card-body">
                 <form method="post">
-                    <input type="hidden" asp-for="estate_vwm.t_Estate.ID_estate"/>
+                    <input type="hidden" asp-for="estate_vwm.ID_estate"/>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <label class="h6 my-2"> نام </label>
-                            <input asp-for="estate_vwm.t_Estate.tittle" type="text" class="form-control" disabled>
+                            <input asp-for="estate_vwm.tittle" type="text" class="form-control" disabled>
                             <label class="h6 my-2"> متراژ </label>
-                            <input asp-for="estate_vwm.t_Estate.metrage" type="text" class="form-control" disabled>
+                            <input asp-for="estate_vwm.metrage" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <img src="~/image/Estates/@Model.estate_vwm.img_up" width="200px" height="200px" class="my-2 mx-auto d-block">
+                            <img src="~/image/Estates/@Model.estate_vwm.image" width="200px" height="200px" class="my-2 mx-auto d-block">
                         </div>
                     </div>
                     <div class="row">

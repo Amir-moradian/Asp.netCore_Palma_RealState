@@ -17,36 +17,37 @@ namespace Asp.netCore_Palma_RealState.Pages.Admin.Estate
         }
 
         [BindProperty]
-        public estate_VWM estate_vwm { get; set; }
-    public async Task<IActionResult> OnGet(int Id)
+        public T_estate estate_vwm { get; set; }
+        public async Task<IActionResult> OnGet(int Id)
         {
+
             if (Id <= 0)
             {
                 return NotFound();
             }
 
-           
-                //estate_vwm = await _context.T_estate.FirstOrDefaultAsync(e => e.ID_estate == Id);
 
-           
+            estate_vwm = await _context.T_estate.FirstOrDefaultAsync(e => e.ID_estate == Id);
 
             if (estate_vwm is null)
             {
                 return NotFound();
             }
 
+
+
             return Page();
         }
         public async Task<IActionResult> OnPost()
         {
-            if (estate_vwm.t_Estate.ID_estate <= 0)
+            if (estate_vwm.ID_estate <= 0)
             {
                 return NotFound();
             }
-            if (estate_vwm.t_Estate.image is not null)
+            if (estate_vwm.image is not null)
             {
                 string saveDir = "wwwroot/image/Estates";
-                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), saveDir, estate_vwm.t_Estate.image);
+                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), saveDir, estate_vwm.image);
                 if (System.IO.File.Exists(deletePath))
                     System.IO.File.Delete(deletePath);
             }
