@@ -22,7 +22,7 @@ namespace Asp.netCore_Palma_RealState.Models
 
         #region Relation
 
-        public ICollection<T_estate>? t_state { get; set; }
+        public ICollection<T_estate>? t_estate { get; set; }
 
         #endregion
 

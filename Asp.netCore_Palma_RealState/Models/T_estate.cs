@@ -39,7 +39,7 @@ namespace Asp.netCore_Palma_RealState.Models
 
         #region Relation
         [ForeignKey(nameof(id_category))]
-        public T_category t_category { get; set; }
+        public T_category? t_category { get; set; }
 
         #endregion
 

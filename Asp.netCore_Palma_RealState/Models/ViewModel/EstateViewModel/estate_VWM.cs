@@ -8,6 +8,6 @@ namespace Asp.netCore_Palma_RealState.Models.ViewModel.EstateViewModel
         public IFormFile? img_up { get; set; }
         public SelectList? category_option { get; set; }
         public string? select_category { get; set; }
-         
+        
     }
 }
