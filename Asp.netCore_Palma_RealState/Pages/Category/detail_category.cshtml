@@ -1,0 +1,35 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.Category.detail_categoryModel
+@{
+    ViewData["Title"] = "جزئیات دسته بندی";
+}
+<div class="row mt-5">
+    @await Component.InvokeAsync("admin_Menu")
+
+    <div class="col-lg-9 col-12">
+        <div class="card pb-4 text-center p-2">
+            <div class="card-header">
+                <h4 class="h4 text-center">جزئیات دسته بندی @Model.t_category.tittle</h4>
+            </div>
+            <form>
+                <div class="row p-3">
+                    <h6 class="text-right my-3"> نام دسته بندی </h6>
+                    <input asp-for="t_category.tittle" class="form-control mt-2" disabled>
+
+
+                    <h6 class="text-right my-3"> توضیحات </h6>
+                    <textarea asp-for="t_category.description" id="discription" cols="15" rows="5" disabled class="form-control"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="edit_category" asp-route-Id="@Model.t_category.ID_category" class="btn btn-info btn-block text-white mx-2">ویرایش اطلاعات</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="show_all_category" class="btn btn-secondary btn-block">بازگشت</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

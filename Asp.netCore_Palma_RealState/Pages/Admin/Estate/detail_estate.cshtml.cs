@@ -80,6 +80,6 @@ namespace Asp.netCore_Palma_RealState.Pages.Admin.Estate
 
 
     }
-    }
+}
 
 

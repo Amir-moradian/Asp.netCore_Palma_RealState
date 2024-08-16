@@ -1,0 +1,45 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.Category.add_categoryModel
+@{
+    ViewData["Title"] = "ایجاد دسته بندی";
+}
+<div class="row mt-5">
+   
+    @await Component.InvokeAsync("admin_Menu")
+
+    <div class="col-lg-9 col-12">
+        <div class="card pb-4 text-center p-2">
+            <form method="post" asp-page="add_category">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="card-header">
+                    <h4 class="h4 text-center"> ایجاد دسته بندی </h4>
+                </div>
+                <div class="row p-3">
+                    <h6 class="text-right my-3"> نام دسته بندی </h6>
+                    <input asp-for="t_category.tittle" placeholder="نام دسته بندی را وارد کنید . . . " class="form-control mt-2">
+                    <span asp-validation-for="t_category.tittle"></span>
+                    <h6 class="text-right my-3"> توضیحات </h6>
+                    <textarea asp-for="t_category.description" id="discription" cols="15" rows="5" placeholder="توضیحات دسته بندی را وارد کنید" class="form-control"></textarea>
+                    <span asp-validation-for="t_category.description"></span>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <button type="submit" class="btn btn-success btn-block text-white mx-2">تایید</button>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="show_all_category" class="btn btn-secondary btn-block">بازگشت</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

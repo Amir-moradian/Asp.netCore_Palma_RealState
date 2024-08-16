@@ -1,0 +1,41 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.Category.edit_categoryModel
+@{
+    ViewData["Title"] = "ویرایش دسته بندی";
+}
+<div class="row mt-5">
+    @await Component.InvokeAsync("admin_Menu")
+
+    <div class="col-lg-9 col-12">
+        <div class="card pb-4 text-center p-2">
+            <div class="card-header">
+                <h4 class="h4 text-center">ویرایش دسته بندی @Model.t_category.tittle</h4>
+            </div>
+            <form method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <input type="hidden" asp-for="t_category.ID_category" />
+                <div class="row p-3">
+                    <h6 class="text-right my-3"> نام دسته بندی </h6>
+                    <input asp-for="t_category.tittle" class="form-control mt-2">
+                    <span asp-validation-for="t_category.tittle"></span>
+                    <h6 class="text-right my-3"> توضیحات </h6>
+                    <textarea asp-for="t_category.description" id="discription" cols="15" rows="5" class="form-control"></textarea>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <button type="submit" class="btn btn-success btn-block text-white mx-2">ویرایش اطلاعات</button>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="show_all_category" class="btn btn-secondary btn-block">بازگشت</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
