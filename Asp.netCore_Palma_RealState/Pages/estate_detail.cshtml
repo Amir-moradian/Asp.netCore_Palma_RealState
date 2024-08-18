@@ -1,0 +1,68 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.estate_detailModel
+
+ <div class="shadow mt-5 p-3">
+    <div class="row">
+        <div class="col-lg-5 col-12">
+            <img src="~/image/Estates/@Model.t_estate.image" class="rounded shadow Estate-image" width="100%" height="400" alt="">
+        </div>
+        <div class="col-lg-3 col-12">
+            <h6 class="mt-3"> @Model.t_estate.tittle </h6>
+
+            <h6 class="mt-3"> متراژ :  </h6> <p>  @Model.t_estate.metrage </p>
+
+            <h6 class="mt-3"> دسته بندی :  </h6> <p> @Model.t_estate?.t_category?.tittle </p>
+
+            <h6 class="mt-3"> قیمت :  </h6> <p> @Model.t_estate?.price </p>
+
+            <h6 class="mt-3"> آدرس :  </h6> <p> @Model.t_estate?.address  </p>
+            
+            <form method="post">
+                <button asp-page-handler="AddToFavourites" asp-route-Id="@Model.estate_detail_VWM.t_estate.ID_estate" class="btn btn-info" type="submit"> افزودن به علاقه مندی ها <i class="fas fa-heart text-danger"></i> </button>
+            </form>
+          
+        </div>
+        <div class="col-lg-4 col-12 Estate-description">
+            <h6> توضیحات : </h6>
+            <p>
+                @Model.t_estate.description
+            </p>
+        </div>
+    </div>
+</div> 
+ @if (Model.estate_detail_VWM.sugest_pro.Any())
+{
+    <!--    محصولات مرتبط :-->
+    <!--    title-->
+    <div class="title">
+        <h2> محصولات مرتبط  </h2>
+    </div>
+    <!--    end title-->
+    <!--    products-->
+    <div class="products row">
+        @foreach (var item in Model.estate_detail_VWM.sugest_pro)
+        {
+            <div class="col-lg-4 col-md-6 col-12">
+                <a asp-page="estate_detail" asp-route-Id="@item.ID_estate">
+                    <div class="product-card">
+                        <div class="image">
+                            <img src="~/image/Estates/@item.image" alt="product1">
+                        </div>
+                        <div class="card-body">
+                            <p class="d-flex justify-content-between">
+                                <span> @item.tittle </span>
+                                <span> @item.metrage متری </span>
+                            </p>
+                            <p class="mt-2 address">
+                                <i class="fas fa-map-marked-alt text-orange"></i>
+                                @item.address
+                            </p>
+                            <p class="my-2"> مبلغ : @item.price </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    <!--    end products-->
+}

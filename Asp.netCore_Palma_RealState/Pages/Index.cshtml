@@ -23,33 +23,34 @@
 @if (Model.t_estate_model.Any())
 {
     <div class="products row">
-      @foreach (var item in Model.t_estate_model)
+        @foreach (var item in Model.t_estate_model)
         {
             <div class="col-lg-4 col-md-6 col-12">
-                <div class="product-card">
-                    <div class="image">
-                        <img src="~/image/Estates/@item.image" alt="product1">
-                    </div>
-                    <div class="card-body">
-                        <p class="d-flex justify-content-between">
-                            <span> @item.tittle </span>
-                            <span> @item.metrage </span>
-                        </p>
-                        <p class="mt-2 address">
-                            <i class="fas fa-map-marked-alt text-orange"></i>
-                            @item.address
-                        </p>
-                        <p class="my-2"> مبلغ : @item.price </p>
+                <a asp-page="estate_detail" asp-route-Id="@item.ID_estate">
+                    <div class="product-card">
+                        <div class="image">
+                            <img src="~/image/Estates/@item.image" alt="product1">
+                        </div>
+                        <div class="card-body">
+                            <p class="d-flex justify-content-between">
+                                <span> @item.tittle </span>
+                                <span> @item.metrage </span>
+                            </p>
+                            <p class="mt-2 address">
+                                <i class="fas fa-map-marked-alt text-orange"></i>
+                                @item.address
+                            </p>
+                            <p class="my-2"> مبلغ : @item.price </p>
+                        </div>
+
                     </div>
 
-                </div>
+                </a>
+
             </div>
 
         }
-
-
-  }
-      
+       
         <h5 class="font-weight-bold text-center mx-auto d-block mt-3"> <a href="#" class="text-dark"> مشاهده همه املاک </a></h5>
     </div>
     <!--    end products-->
