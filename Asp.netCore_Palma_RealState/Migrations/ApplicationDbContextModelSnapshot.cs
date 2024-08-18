@@ -310,7 +310,7 @@ namespace Asp.netCore_Palma_RealState.Migrations
             modelBuilder.Entity("Asp.netCore_Palma_RealState.Models.T_estate", b =>
                 {
                     b.HasOne("Asp.netCore_Palma_RealState.Models.T_category", "t_category")
-                        .WithMany("t_state")
+                        .WithMany("t_estate")
                         .HasForeignKey("id_category");
 
                     b.Navigation("t_category");
@@ -369,7 +369,7 @@ namespace Asp.netCore_Palma_RealState.Migrations
 
             modelBuilder.Entity("Asp.netCore_Palma_RealState.Models.T_category", b =>
                 {
-                    b.Navigation("t_state");
+                    b.Navigation("t_estate");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Asp.netCore_Palma_RealState.Migrations
 {
     /// <inheritdoc />
-    public partial class adtallfirst : Migration
+    public partial class Addall_T : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,20 @@ namespace Asp.netCore_Palma_RealState.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "T_category",
+                columns: table => new
+                {
+                    ID_category = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    tittle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_category", x => x.ID_category);
                 });
 
             migrationBuilder.CreateTable(
@@ -158,6 +172,31 @@ namespace Asp.netCore_Palma_RealState.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "T_estate",
+                columns: table => new
+                {
+                    ID_estate = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    tittle = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    metrage = table.Column<int>(type: "int", nullable: false),
+                    image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    price = table.Column<double>(type: "float", nullable: false),
+                    address = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    id_category = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_estate", x => x.ID_estate);
+                    table.ForeignKey(
+                        name: "FK_T_estate_T_category_id_category",
+                        column: x => x.id_category,
+                        principalTable: "T_category",
+                        principalColumn: "ID_category",
+                        onDelete:ReferentialAction.SetNull);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -196,6 +235,11 @@ namespace Asp.netCore_Palma_RealState.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_T_estate_id_category",
+                table: "T_estate",
+                column: "id_category");
         }
 
         /// <inheritdoc />
@@ -217,10 +261,16 @@ namespace Asp.netCore_Palma_RealState.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "T_estate");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "T_category");
         }
     }
 }

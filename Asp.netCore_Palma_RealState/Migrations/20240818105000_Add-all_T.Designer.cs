@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Asp.netCore_Palma_RealState.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240730111529_ad-t-cat")]
-    partial class adtcat
+    [Migration("20240818105000_Add-all_T")]
+    partial class Addall_T
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -313,7 +313,7 @@ namespace Asp.netCore_Palma_RealState.Migrations
             modelBuilder.Entity("Asp.netCore_Palma_RealState.Models.T_estate", b =>
                 {
                     b.HasOne("Asp.netCore_Palma_RealState.Models.T_category", "t_category")
-                        .WithMany("t_state")
+                        .WithMany("t_estate")
                         .HasForeignKey("id_category");
 
                     b.Navigation("t_category");
@@ -372,7 +372,7 @@ namespace Asp.netCore_Palma_RealState.Migrations
 
             modelBuilder.Entity("Asp.netCore_Palma_RealState.Models.T_category", b =>
                 {
-                    b.Navigation("t_state");
+                    b.Navigation("t_estate");
                 });
 #pragma warning restore 612, 618
         }
