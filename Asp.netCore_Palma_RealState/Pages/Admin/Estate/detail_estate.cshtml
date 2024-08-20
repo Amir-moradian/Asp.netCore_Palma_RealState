@@ -23,20 +23,19 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <label class="my-2 h6"> نام </label>
-                            <input asp-for="Estate_VWM.t_Estate.tittle" class="form-control" disabled>>
+                            <input asp-for="Estate_VWM.t_Estate.tittle" class="form-control" disabled>
                             <label class="my-2 h6"> متراژ </label>
-                            <input asp-for="Estate_VWM.t_Estate.metrage" class="form-control" disabled>>
+                            <input asp-for="Estate_VWM.t_Estate.metrage" class="form-control" disabled>
                             <label class="my-2 h6"> آدرس </label>
-                            <input asp-for="Estate_VWM.t_Estate.address" class="form-control" disabled>>
+                            <input asp-for="Estate_VWM.t_Estate.address" class="form-control" disabled>
                             <label class="my-2 h6"> توضیحات </label>
-                        <textarea asp-for="Estate_VWM.t_Estate.description" class="form-control" disabled>></textarea>
+                        <textarea asp-for="Estate_VWM.t_Estate.description" class="form-control" disabled></textarea>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                           @*  <label class="my-2 h6"> نوع </label>
-                            @* <input value="@Model.Estate_VWM.t_Estate.metrage" class="form-control" disabled>  *@
-                      @*   <input value="@Model.Estate_VWM.t_Estate.tittle" class="form-control" disabled>> *@ 
+                         <label class="my-2 h6"> نوع </label>
+                          <input value="@Model?.Estate_VWM?.t_Estate?.tittle" class="form-control" disabled> 
                             <label class="my-2 h6"> مبلغ </label>
-                        <input value="@Model.Estate_VWM.t_Estate.price" class="form-control" disabled>>
+                        <input value="@Model.Estate_VWM.t_Estate.price" class="form-control" disabled>
                             <label class="my-2 h6 d-block"> عکس </label>
                         <img src="/image/Estates/@Model.Estate_VWM.t_Estate.image" class="d-block m-auto img-fluid" width="250" height="250">
                         </div>

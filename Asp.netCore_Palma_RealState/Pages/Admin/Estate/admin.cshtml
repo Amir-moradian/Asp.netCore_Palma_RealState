@@ -25,7 +25,7 @@
                                 <th class="text-center"> عکس </th>
                                 <th class="text-center"> نام </th>
                                 <th class="text-center"> متراژ </th>
-                               @*  <th class="text-center"> دسته بندی</th> *@
+                                <th class="text-center"> دسته بندی</th>
                                 <th class="text-center">مدیریت</th>
                             </tr>
                         </thead>
@@ -36,7 +36,7 @@
                                     <td class="text-center align-middle"><img src="~/image/Estates/@item.image" class="img-fluid" width="60" height="60" alt=""></td>
                                     <td class="text-center align-middle">@item.tittle</td>
                                     <td class="text-center align-middle">@item.metrage</td>
-                                    @*  <td class="text-center align-middle">آپارتمان</td> *@
+                                     <td class="text-center align-middle">@item?.t_category?.tittle</td>
                                     <td class="text-center">
                                         <div class="btn-group" dir="ltr" role="group" aria-label="Basic example">
                                             <a asp-page="detail_estate" asp-route-id="@item.ID_estate" class="btn btn-sm btn-info"><i class="fas fa-list"></i></a>

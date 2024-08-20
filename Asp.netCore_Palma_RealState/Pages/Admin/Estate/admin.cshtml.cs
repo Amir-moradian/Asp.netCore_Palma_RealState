@@ -19,8 +19,14 @@ namespace Asp.netCore_Palma_RealState.Pages.Admin.Estate
 
         public async Task<IActionResult> OnGet()
         {
-            show_all_estate = await _context.T_estate.ToListAsync();
+            //show_all_estate = await _context.T_estate.ToListAsync();
+            //return Page();
+
+            show_all_estate = await _context.T_estate
+                .Include(c => c.t_category)
+                .ToListAsync();
             return Page();
+            
         }
     }
 }

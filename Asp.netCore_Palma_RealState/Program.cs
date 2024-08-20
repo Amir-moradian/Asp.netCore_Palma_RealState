@@ -1,4 +1,5 @@
 using Asp.netCore_Palma_RealState.Data;
+using Asp.netCore_Palma_RealState.Extention;
 using Asp.netCore_Palma_RealState.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,23 @@ namespace Asp.netCore_Palma_RealState
             builder.Services.AddDefaultIdentity<User_Model>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddRazorPages();
+
+            #region Authorization
+
+            builder.Services.AddAuthorization(options =>
+                     {
+                         options.AddPolicy(AuthorizationPolicies.Admin_Policy, p => p.RequireRole(rols.Admin));
+
+                     });
+            
+            builder.Services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Admin", AuthorizationPolicies.Admin_Policy);
+            });
+
+            #endregion
+
+
 
             var app = builder.Build();
 
@@ -35,12 +52,12 @@ namespace Asp.netCore_Palma_RealState
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-         
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapRazorPages();

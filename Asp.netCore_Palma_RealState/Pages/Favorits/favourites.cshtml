@@ -1,0 +1,38 @@
+﻿@page
+@model Asp.netCore_Palma_RealState.Pages.Favorits.favouritesModel
+@{
+    ViewData["Title"] = "علاقه مندی ها";
+}
+<div class="row mt-5">
+    @await Component.InvokeAsync("admin_Menu")
+    @if (Model.t_favourite.Any())
+    {
+        <div class="col-lg-9 col-12">
+            <div class="row">
+                @foreach (var favourite in Model.t_favourite)
+                {
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <a asp-page="/EstateDetails" asp-route-Id="@favourite.t_estate.ID_estate">
+                            <div class="product-card">
+                                <div class="image">
+                                    <img src="~/image/Estates/@favourite.t_estate.image" alt="product1">
+                                </div>
+                                <div class="card-body">
+                                    <p class="d-flex justify-content-between">
+                                        <span> @favourite.t_estate.tittle </span>
+                                        <span> @favourite.t_estate.metrage متری </span>
+                                    </p>
+                                    <p class="mt-2 address">
+                                        <i class="fas fa-map-marked-alt text-orange"></i>
+                                        @favourite.t_estate.address
+                                    </p>
+                                    <p class="my-2"> مبلغ : @favourite.t_estate.price </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
