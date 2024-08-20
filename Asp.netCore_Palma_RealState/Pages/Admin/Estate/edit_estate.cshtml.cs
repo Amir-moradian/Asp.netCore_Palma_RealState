@@ -38,7 +38,8 @@ namespace Asp.netCore_Palma_RealState.Pages.Admin.Estate
             {
                 return NotFound();
             }
-            init_category();
+
+           init_category();
             Estate_VWM.t_Estate = estate;
             return Page();
         }

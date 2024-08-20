@@ -23,7 +23,7 @@ namespace Asp.netCore_Palma_RealState.Pages.Admin.Estate
             //return Page();
 
             show_all_estate = await _context.T_estate
-                .Include(c => c.t_category)
+              .Include(c => c.t_category)
                 .ToListAsync();
             return Page();
             

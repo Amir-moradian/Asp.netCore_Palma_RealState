@@ -1,4 +1,4 @@
-﻿using Asp.netCore_Palma_RealState.Data;
+using Asp.netCore_Palma_RealState.Data;
 using Asp.netCore_Palma_RealState.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netCore_Palma_RealState.Pages
 {
-    public class IndexModel : PageModel
+    public class all_estateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context)
+        public all_estateModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -20,8 +20,7 @@ namespace Asp.netCore_Palma_RealState.Pages
         {
             t_estate_model = await _context
                 .T_estate
-                .Take(6)
-                .ToListAsync();
+               .ToListAsync();
             return Page();
         }
     }
